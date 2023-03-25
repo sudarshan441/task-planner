@@ -13,17 +13,19 @@ app.post('/', async (req, res) => {
     const sprint = new sprintModel({
       name: req.body.name,
     });
-  
     await sprint.save();
-    res.send(sprint);
+    res.send(sprint)
+  });
+app.get('/', async (req, res) => {
+   const sprint = await sprintModel.find({});
+   res.send(sprint)
   });
 
-
-  app.post('/:sprintId/tasks', async (req, res) => {
+app.post('/:sprintId/tasks', async (req, res) => {
     const { title, type, status, assignee } = req.body;
-    const task = new Task({ title, description, type, status, assignee, sprintId: req.params.sprintId });
+    const task = new taskModel({ title,type, status, assignee, sprintId: req.params.sprintId });
     await task.save();
-    const sprint = await sprintModel.findByIdAndUpdate(req.params.id, { $push: { tasks: task._id } }, { new: true });
+    const sprint = await sprintModel.findByIdAndUpdate(req.params.sprintId, { $push: { tasks: task._id } }, { new: true });
     res.json(sprint);
   });
   

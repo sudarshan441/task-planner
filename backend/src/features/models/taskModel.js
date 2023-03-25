@@ -8,5 +8,5 @@ const taskSchema = new mongoose.Schema({
     sprintId: { type: mongoose.Schema.Types.ObjectId, ref: 'Sprint' },
   });
 
-  const userTask = mongoose.model('Task', taskSchema);
+const userTask = mongoose.model('Task', taskSchema);
   module.exports =userTask;

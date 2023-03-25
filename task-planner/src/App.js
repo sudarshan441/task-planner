@@ -1,12 +1,13 @@
 import './App.css';
-import AddTask from './components/AddTask';
+import AllRoutes from './components/AllRoutes';
+import NavBar from './components/NavBar';
 
 function App() {
   return (
     <div className="App">
-    <AddTask></AddTask>
+  <NavBar></NavBar>
+  <AllRoutes></AllRoutes>
     </div>
   );
 }
-
 export default App;

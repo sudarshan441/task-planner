@@ -3,6 +3,7 @@ const mongoose=require("mongoose");
 const cors=require("cors");
 const sprintRouter=require("./features/routes/sprintRoute");
 const taskRouter=require("./features/routes/taskRoute");
+const userRouter=require("./features/routes/userRoute");
 const connect  = require("./config/db");
 
 
@@ -11,6 +12,7 @@ app.use(express.json());
 app.use(cors());
 app.use("/sprint",sprintRouter)
 app.use("/task",taskRouter)
+app.use("/user",userRouter)
 
 
 app.get("/",(req,res)=>{

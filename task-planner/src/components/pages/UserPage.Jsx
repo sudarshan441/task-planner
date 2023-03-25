@@ -1,12 +1,11 @@
 import React from 'react'
 
-const AddTask = () => {
-
+const UserPage = () => {
   return (
     <div>
-
+      userpage
     </div>
   )
 }
 
-export default AddTask
+export default UserPage

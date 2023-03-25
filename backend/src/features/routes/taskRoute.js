@@ -4,7 +4,7 @@ const userTask = require("../models/taskModel");
 const app = express.Router();
 
 app.get('/users/:id/tasks', async (req, res) => {
-  const tasks = await Task.find({ assignee: req.params.id }).populate('assignee');
+  const tasks = await userTask.find({ assignee: req.params.id }).populate('assignee');
   res.json(tasks);
 });
    app.get('/', async (req, res) => {

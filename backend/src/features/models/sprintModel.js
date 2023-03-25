@@ -6,7 +6,6 @@ const sprintSchema = new mongoose.Schema({
   
 });
 
-
 const sprintModel = mongoose.model('Sprint', sprintSchema);
 
 module.exports = sprintModel;
