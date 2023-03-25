@@ -23,9 +23,10 @@ app.get('/', async (req, res) => {
 
 app.post('/:sprintId/tasks', async (req, res) => {
     const { title, type, status, assignee } = req.body;
+    console.log(req.params)
     const task = new taskModel({ title,type, status, assignee, sprintId: req.params.sprintId });
     await task.save();
-    const sprint = await sprintModel.findByIdAndUpdate(req.params.sprintId, { $push: { tasks: task._id } }, { new: true });
+    const sprint = await sprintModel.findByIdAndUpdate({_id:req.params.sprintId}, { $push: { tasks: task._id } }, { new: true });
     res.json(sprint);
   });
   
