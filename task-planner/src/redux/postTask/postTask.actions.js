@@ -4,7 +4,7 @@ import { PostTask_Error, PostTask_loading, PostTask_Success } from "./postTypest
 export const PostTask=(data)=>(dispatch)=>{
 
       dispatch({type:PostTask_loading})
-        fetch("http://localhost:8005/sprint",{
+        fetch(`http://localhost:8005/sprint/${data.sprintId}/tasks`,{
        method:"POST",
        headers:{
            "Content-Type": "application/json"
@@ -12,6 +12,7 @@ export const PostTask=(data)=>(dispatch)=>{
        body:JSON.stringify(data)}
    ).then(res=>res.json()).then(()=>{
     dispatch({type:PostTask_Success})
+    
    
 }).catch(()=>{
     dispatch({type:PostTask_Error})

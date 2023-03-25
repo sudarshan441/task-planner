@@ -1,4 +1,4 @@
-import {PostTask_success} from "./postTypestypes"
+import {PostTask_Error, PostTask_loading, PostTask_Success} from "./postTypestypes"
 
 const InitialValue = {
     loading: false,
@@ -8,21 +8,21 @@ const InitialValue = {
 
 export const postTaskReducer = (state = InitialValue, { type, payload }) => {
     switch (type) {
-        case SIGNUP_loading: {
+        case PostTask_loading: {
             return {
                 ...state,
                 loading: true,
                 
             }
         }
-        case SIGNUP_Success: {
+        case PostTask_Success: {
             return {
                 ...state,
                 loading: false,
                 PostTask_success:true,
             }
         }
-        case SIGNUP_Error: {
+        case PostTask_Error: {
             return {
                 ...state,
                 loading: false,

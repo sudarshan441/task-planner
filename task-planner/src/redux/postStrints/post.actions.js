@@ -1,9 +1,10 @@
+import { getSprints } from "../getSprints/get.actions";
 import { POST_Error, POST_loading, POST_Success } from "./post.types";
 
 export const postSprint=(data)=>async(dispatch)=>{
     try{
       dispatch({type:POST_loading})
-        let res=await fetch(`http://localhost:8005/sprint/${data.sprintId}/tasks`,{
+        let res=await fetch(`http://localhost:8005/sprint`,{
        method:"POST",
        headers:{
            "Content-Type": "application/json"
@@ -12,7 +13,7 @@ export const postSprint=(data)=>async(dispatch)=>{
    )
     res =await res.json();
     dispatch({type:POST_Success});
-    alert("sprint successfully created")
+    dispatch(getSprints())
      }catch(err){
      dispatch({type:POST_Error})
      alert("Error: " + err)
